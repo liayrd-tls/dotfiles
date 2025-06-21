@@ -1,0 +1,121 @@
+* {
+    bg: #2E3440;
+    bg-alt: #3B4252;
+    fg: #ECEFF4;
+    fg-alt: #88C0D0;
+    
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    width: 30%;
+    location: center;
+    anchor: center;
+    y-offset: 0;
+    x-offset: 0;
+}
+
+prompt {
+    enabled: true;
+    padding: 12 0 0 0;
+    background-color: @bg;
+    text-color: @fg;
+}
+
+entry {
+    padding: 12;
+    background-color: @bg;
+    text-color: @fg;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg;
+}
+
+listview {
+    background-color: @bg;
+    columns: 1;
+    lines: 8;
+    spacing: 0;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+element {
+    padding: 8 12;
+    background-color: @bg;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @bg-alt;
+    text-color: @fg-alt;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 24;
+    padding: 0 10 0 0;
+    background-color: transparent;
+}
+
+element selected {
+    background-color: @bg-alt;
+    text-color: @fg-alt;
+}
+
+element alternate {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+scrollbar {
+    width: 4;
+    border: 0;
+    handle-width: 8;
+    padding: 0;
+    background-color: @bg-alt;
+}
+
+sidebar {
+    border: 0 0 0 1;
+    background-color: @bg;
+}
+
+button {
+    padding: 8;
+    background-color: @bg;
+    text-color: @fg;
+}
+
+button selected {
+    background-color: @bg-alt;
+    text-color: @fg-alt;
+}
+
+message {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+textbox {
+    padding: 12;
+    background-color: @bg;
+    text-color: @fg;
+}
+
+error-message {
+    padding: 12;
+    background-color: @bg;
+    text-color: @fg;
+} 

@@ -1,0 +1,119 @@
+super + o
+    rofi -show drun
+    
+shift + alt + x
+    flameshot gui
+
+# Перезапуск sxhkd
+super + Escape
+	bspc wm -r
+
+# Перезапуск sxhkd
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Запуск програм
+super + Return
+	gnome-terminal
+
+super + d
+	rofi -show drun
+
+super + shift + d
+	rofi -show run
+
+# Керування bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Закрити/убити вікно
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# Переключення між tiled та monocle
+super + m
+	bspc desktop -l next
+
+# Відправити найновіше помічене вікно на найновіший попередньо вибраний вузол
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# Обмінятися поточним вузлом та найбільшим вікном
+super + g
+	bspc node -s biggest.window
+
+# Зміна стану вікнаMM
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Встановити прапор вузла
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# Фокус/переміщення вікон
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# Фокус або відправити на робочий стіл
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Попередня вибірка - розділити у напрямку
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# Попередня вибірка - скасувати для поточного вузла
+super + ctrl + space
+	bspc node -p cancel
+
+# Скасувати попередню вибірку для поточного робочого столу
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# Розширити вікно переміщуючи одну зі сторін зовні
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Стиснути вікно переміщуючи одну зі сторін всередину  
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Переміщення плаваючого вікна
+#super + {Left,Down,Up,Right}
+	#bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Перехід до наступного/попереднього workspace
+super + {Left,Right}
+	bspc desktop -f {prev,next}.local
+
+# Перемістити вікно на попередній/наступний робочий стіл і встановити фокус
+super + shift + {Left,Right}
+	bspc node -d {prev,next}.local --follow
+
+# Перемістити вікно на інший монітор і встановити фокус
+super + ctrl + {Left,Right}
+	bspc node -m {prev,next} --follow
+
+# Керування гучністю
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Керування яскравістю
+XF86MonBrightnessUp
+	brightnessctl set +10%
+
+XF86MonBrightnessDown
+	brightnessctl set 10%-
+
+# Скріншоти
+Print
+	flameshot gui
+
+super + Print
+	flameshot full
