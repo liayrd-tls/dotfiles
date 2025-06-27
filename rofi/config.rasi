@@ -1,121 +1,101 @@
 * {
-    bg: #2E3440;
-    bg-alt: #3B4252;
-    fg: #ECEFF4;
-    fg-alt: #88C0D0;
-    
-    border: 0;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
+    font: "Ubuntu Sans 32";
+    g-spacing: 30px;
+    g-margin: 10px;
+    b-color: #000000CC;
+    fg-color: #FFFFFFFF;
+    fgp-color: #888888FF;
+    b-radius: 8px;
+    g-padding: 16px;
+    hl-color: #ff7800CC;
+    hlt-color: #000000CC;
+    alt-color: #00000000;
+    wbg-color: #000000CC;
+    w-border: 6px solid;
+    w-border-color: #ff7800;
+    w-padding: 32px;
 }
 
-window {
-    width: 30%;
-    location: center;
-    anchor: center;
-    y-offset: 0;
-    x-offset: 0;
-}
-
-prompt {
-    enabled: true;
-    padding: 12 0 0 0;
-    background-color: @bg;
-    text-color: @fg;
-}
-
-entry {
-    padding: 12;
-    background-color: @bg;
-    text-color: @fg;
-}
-
-inputbar {
-    children: [prompt, entry];
-    background-color: @bg;
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
 }
 
 listview {
-    background-color: @bg;
     columns: 1;
-    lines: 8;
-    spacing: 0;
-    cycle: true;
-    dynamic: true;
-    layout: vertical;
+    lines: 7;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+window {
+    transparency: "real";
+    width: 1400px;
+    border-radius: @b-radius;
+    background-color: @wbg-color;
+    border: @w-border;
+    border-color: @w-border-color;
+    padding: @w-padding;
+}
+
+prompt {
+    text-color: @fg-color;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "Search Apps";
+    text-color: @fg-color;
+    placeholder-color: @fgp-color;
+}
+
+mainbox {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
 }
 
 element {
-    padding: 8 12;
-    background-color: @bg;
-    text-color: @fg;
-}
-
-element selected {
-    background-color: @bg-alt;
-    text-color: @fg-alt;
-}
-
-element-text {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    border: 0px solid;
+    border-radius: @b-radius;
+    border-color: @b-color;
     background-color: transparent;
-    text-color: inherit;
-    vertical-align: 0.5;
+    text-color: @fg-color;
 }
 
-element-icon {
-    size: 24;
-    padding: 0 10 0 0;
-    background-color: transparent;
+element normal.normal {
+	background-color: transparent;
+	text-color: @fg-color;
 }
 
-element selected {
-    background-color: @bg-alt;
-    text-color: @fg-alt;
+element alternate.normal {
+	background-color: @alt-color;
+	text-color: @fg-color;
 }
 
-element alternate {
-    background-color: @bg;
-    text-color: @fg;
+element selected.active {
+	background-color: @hl-color;
+	text-color: @hlt-color;
 }
 
-scrollbar {
-    width: 4;
-    border: 0;
-    handle-width: 8;
-    padding: 0;
-    background-color: @bg-alt;
-}
-
-sidebar {
-    border: 0 0 0 1;
-    background-color: @bg;
-}
-
-button {
-    padding: 8;
-    background-color: @bg;
-    text-color: @fg;
-}
-
-button selected {
-    background-color: @bg-alt;
-    text-color: @fg-alt;
+element selected.normal {
+	background-color: @hl-color;
+	text-color: @hlt-color;
 }
 
 message {
-    background-color: @bg;
-    text-color: @fg;
+    background-color: red;
+    border: 0px solid;
 }
-
-textbox {
-    padding: 12;
-    background-color: @bg;
-    text-color: @fg;
-}
-
-error-message {
-    padding: 12;
-    background-color: @bg;
-    text-color: @fg;
-} 
