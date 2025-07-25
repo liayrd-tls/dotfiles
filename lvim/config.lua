@@ -77,6 +77,9 @@ lvim.plugins = {
     },
 }
 
+-- transperent background
+lvim.transparent_window = true
+
 -- variables for colorscheme
 function custom_colors()
     return {
